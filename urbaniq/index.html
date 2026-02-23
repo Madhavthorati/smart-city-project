@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart City — Platform</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+  <div class="logo">
+    <div class="logo-dot"></div>
+    Smart<span>City</span>
+  </div>
+  <div class="header-center">
+   <!-- <button class="city-btn active" onclick="selectCity(this,'Chandigarh')">Chandigarh</button>
+    <button class="city-btn" onclick="selectCity(this,'Mohali')">Mohali</button>
+    <button class="city-btn" onclick="selectCity(this,'Panchkula')">Panchkula</button>
+    <button class="city-btn" onclick="selectCity(this,'Kharar')">Kharar</button> -->
+  </div>
+  <div class="header-right">
+    <div class="live-badge"><div class="live-dot"></div> LIVE</div>
+    <span class="timestamp" id="clock">--:--:--</span>
+    <button class="notif-btn" onclick="loadModule('alerts')">
+      🔔 <span class="notif-count">5</span>
+    </button>
+  </div>
+</header>
+
+<!-- Layout -->
+<div class="layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="nav-group-label">Overview</div>
+    <div class="nav-item active" data-module="dashboard" onclick="loadModule('dashboard',this)">
+      <span class="ni">🏙️</span> Dashboard
+    </div>
+    <div class="nav-item" data-module="map" onclick="loadModule('map',this)">
+      <span class="ni">🗺️</span> City Map
+    </div>
+    <div class="nav-item" data-module="ai" onclick="loadModule('ai',this)">
+      <span class="ni">🤖</span> AI Analysis
+      <span class="nb ok">ON</span>
+    </div>
+
+    <div class="nav-group-label">Transport</div>
+    <div class="nav-item" data-module="bus" onclick="loadModule('bus',this)">
+      <span class="ni">🚌</span> Bus & Routes
+      <span class="nb warn">12</span>
+    </div>
+    <div class="nav-item" data-module="traffic" onclick="loadModule('traffic',this)">
+      <span class="ni">🚦</span> Traffic
+      <span class="nb alert">3</span>
+    </div>
+    <div class="nav-item" data-module="repairs" onclick="loadModule('repairs',this)">
+      <span class="ni">🚧</span> Road Repairs
+      <span class="nb warn">7</span>
+    </div>
+
+    <div class="nav-group-label">Utilities</div>
+    <div class="nav-item" data-module="electricity" onclick="loadModule('electricity',this)">
+      <span class="ni">⚡</span> Electricity
+    </div>
+    <div class="nav-item" data-module="water" onclick="loadModule('water',this)">
+      <span class="ni">💧</span> Water Supply
+      <span class="nb warn">2</span>
+    </div>
+    <div class="nav-item" data-module="waste" onclick="loadModule('waste',this)">
+      <span class="ni">🗑️</span> Waste Mgmt
+      <span class="nb alert">8</span>
+    </div>
+    <div class="nav-item" data-module="aqi" onclick="loadModule('aqi',this)">
+      <span class="ni">💨</span> Air Quality
+      <span class="nb warn">MOD</span>
+    </div>
+
+    <div class="nav-group-label">Services</div>
+    <div class="nav-item" data-module="emergency" onclick="loadModule('emergency',this)">
+      <span class="ni">🚨</span> Emergency
+      <span class="nb alert">2</span>
+    </div>
+    <div class="nav-item" data-module="hospitals" onclick="loadModule('hospitals',this)">
+      <span class="ni">🏥</span> Hospitals
+    </div>
+    <div class="nav-item" data-module="schools" onclick="loadModule('schools',this)">
+      <span class="ni">🏫</span> Schools & Colleges
+    </div>
+    <div class="nav-item" data-module="municipal" onclick="loadModule('municipal',this)">
+      <span class="ni">🏛️</span> Municipal Corp.
+    </div>
+    <div class="nav-item" data-module="events" onclick="loadModule('events',this)">
+      <span class="ni">📅</span> City Events
+    </div>
+    <div class="nav-item" data-module="alerts" onclick="loadModule('alerts',this)">
+      <span class="ni">⚡</span> Alerts
+      <span class="nb alert">5</span>
+    </div>
+  </aside>
+
+  <!-- Content Area -->
+  <main class="content" id="content">
+    <!-- Modules load here via JS -->
+    <div id="moduleFrame"></div>
+  </main>
+
+</div>
+
+<!-- AI Chat Button -->
+<button class="ai-chat-btn" onclick="toggleChat()">🤖</button>
+
+<!-- AI Chat Drawer -->
+<div class="chat-drawer" id="chatDrawer">
+  <div class="chat-drawer-header">
+    <div class="ai-indicator"></div>
+    <span class="chat-title">UrbanIQ AI Assistant</span>
+    <button class="chat-close" onclick="toggleChat()">✕</button>
+  </div>
+  <div class="chat-messages" id="chatMessages">
+    <div class="chat-msg ai">👋 Hi! I can answer questions about traffic, buses, AQI, water, waste, events, hospitals and more. Ask away!</div>
+  </div>
+  <div class="chat-input-row">
+    <input class="chat-input" id="chatInput" placeholder="Ask about city resources..." onkeydown="if(event.key==='Enter')sendChat()">
+    <button class="chat-send" onclick="sendChat()">→</button>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/chat.js"></script>
+</body>
+</html>
