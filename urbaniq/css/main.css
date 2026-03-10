@@ -571,9 +571,15 @@ body {
 }
 
 .aqi-pointer {
-  font-size: 28px;
-  font-weight: 700;
-  font-family: 'Poppins', sans-serif;
+  position: absolute;
+  top: -4px;
+  width: 18px; height: 18px;
+  background: white;
+  border: 2px solid var(--text);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  box-shadow: var(--shadow);
+  transition: left .5s ease;
 }
 
 .aqi-scale {
