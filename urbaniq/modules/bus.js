@@ -15,6 +15,7 @@ function render_bus(el) {
     <div class="breadcrumb">Smart City / <span>Bus & Routes</span></div>
     <div class="module-header">
       <div class="module-title">🚌 Bus Timings & Routes</div>
+      <button class="request-btn" onclick="showBusRequestDialog()">📝 Report Issue</button>
       <div class="module-subtitle">Live tracking · ${window._currentCity||'Chandigarh'}</div>
     </div>
 

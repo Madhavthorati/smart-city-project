@@ -12,7 +12,11 @@ function render_electricity(el){
   el.innerHTML=`
   <div class="fade-in">
     <div class="breadcrumb">Smart City / <span>Electricity</span></div>
-    <div class="module-header"><div class="module-title">⚡ Electricity Grid</div><div class="module-subtitle">PSPCL · ${window._currentCity||'Chandigarh'}</div></div>
+    <div class="module-header">
+      <div class="module-title">⚡ Electricity Grid</div>
+      <button class="request-btn" onclick="showElectricityRequestDialog()">📝 Report Issue</button>
+      <div class="module-subtitle">PSPCL · ${window._currentCity||'Chandigarh'}</div>
+    </div>
     <div class="grid-4" style="margin-bottom:16px">
       <div class="stat-card" style="--stat-color:var(--green)"><div class="stat-label">Grid Uptime</div><div class="stat-value" style="color:var(--green)">98.2%</div><div class="stat-sub">Last 30 days</div></div>
       <div class="stat-card" style="--stat-color:var(--blue)"><div class="stat-label">Total Demand</div><div class="stat-value" style="color:var(--blue)">847 MW</div><div class="stat-sub">Current draw</div></div>

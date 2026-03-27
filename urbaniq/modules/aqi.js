@@ -5,6 +5,7 @@ function render_aqi(el) {
     <div class="breadcrumb">Smart City / <span>Air Quality</span></div>
     <div class="module-header">
       <div class="module-title">💨 Air Quality Index</div>
+      <button class="request-btn" onclick="showAQIRequestDialog()">📝 Report Issue</button>
       <div class="module-subtitle">CPCB Stations · ${window._currentCity||'Chandigarh'}</div>
     </div>
 

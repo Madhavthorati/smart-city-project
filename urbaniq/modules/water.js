@@ -11,7 +11,11 @@ function render_water(el){
   el.innerHTML=`
   <div class="fade-in">
     <div class="breadcrumb">Smart City / <span>Water Supply</span></div>
-    <div class="module-header"><div class="module-title">💧 Water Supply Monitoring</div><div class="module-subtitle">MC Water Works · ${window._currentCity||'Chandigarh'}</div></div>
+    <div class="module-header">
+      <div class="module-title">💧 Water Supply Monitoring</div>
+      <button class="request-btn" onclick="showWaterRequestDialog()">📝 Report Issue</button>
+      <div class="module-subtitle">MC Water Works · ${window._currentCity||'Chandigarh'}</div>
+    </div>
     <div class="grid-4" style="margin-bottom:16px">
       <div class="stat-card" style="--stat-color:var(--blue)"><div class="stat-label">Avg Reservoir</div><div class="stat-value" style="color:var(--blue)">62%</div><div class="stat-sub">City-wide average</div></div>
       <div class="stat-card" style="--stat-color:var(--red)"><div class="stat-label">Critical Zones</div><div class="stat-value" style="color:var(--red)">2</div><div class="stat-sub">South & Central</div></div>

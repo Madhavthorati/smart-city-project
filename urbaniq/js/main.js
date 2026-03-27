@@ -28,6 +28,8 @@ const BUNDLE_SRC = 'modules/emergency.js';
 
 const MODULE_FILES = {
   dashboard:   'modules/dashboard.js',
+  userDashboard: 'modules/userDashboard.js',
+  admin:       'modules/admin.js',
   map:         BUNDLE_SRC,
   ai:          BUNDLE_SRC,
   bus:         'modules/bus.js',
@@ -97,8 +99,82 @@ function loadModule(name, navEl) {
   }, 300); // brief delay lets skeleton flash
 }
 
+// Authentication check
+function checkAuthentication() {
+  const currentUser = localStorage.getItem('currentUser');
+  if (!currentUser) {
+    window.location.href = 'login.html';
+    return false;
+  }
+  return JSON.parse(currentUser);
+}
+
 // Load dashboard on start
 window.addEventListener('DOMContentLoaded', () => {
+  // Check if user is authenticated
+  const user = checkAuthentication();
+  if (!user) return;
+  
+  // Add user info to header
+  addUserInfoToHeader(user);
+  
   const dashNav = document.querySelector('[data-module="dashboard"]');
   loadModule('dashboard', dashNav);
+  
+  // Add module-specific request buttons only
+  setTimeout(() => {
+    if (typeof addRequestButtonsToAllModules === 'function') {
+      addRequestButtonsToAllModules();
+    }
+  }, 3000);
 });
+
+// Add manual request button for users
+function addManualRequestButton() {
+  // Check if button already exists
+  if (document.getElementById('manualRequestBtn')) {
+    return;
+  }
+  
+  const header = document.querySelector('.header-right');
+  if (header) {
+    const btn = document.createElement('button');
+    btn.id = 'manualRequestBtn';
+    btn.className = 'request-btn header-request-btn';
+    btn.innerHTML = '📝 Submit Request';
+    btn.onclick = () => {
+      if (typeof showGenericRequestDialog === 'function') {
+        showGenericRequestDialog();
+      } else {
+        alert('Request system not ready. Please refresh the page.');
+      }
+    };
+    
+    // Add button with proper spacing
+    header.appendChild(btn);
+    console.log('Manual request button added to header');
+  }
+}
+
+// Add user info to header
+function addUserInfoToHeader(user) {
+  const headerRight = document.querySelector('.header-right');
+  const userInfo = document.createElement('div');
+  userInfo.className = 'user-info';
+  userInfo.innerHTML = `
+    <span class="user-name">👤 ${user.username}</span>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  `;
+  headerRight.insertBefore(userInfo, headerRight.firstChild);
+  
+  // Show admin panel for admin users
+  if (user.username === 'admin' || user.email.includes('admin')) {
+    document.getElementById('adminNavItem').style.display = 'block';
+  }
+}
+
+// Logout function
+function logout() {
+  localStorage.removeItem('currentUser');
+  window.location.href = 'login.html';
+}

@@ -13,7 +13,11 @@ function render_waste(el){
   el.innerHTML=`
   <div class="fade-in">
     <div class="breadcrumb">Smart City / <span>Waste Management</span></div>
-    <div class="module-header"><div class="module-title">🗑️ Waste Management</div><div class="module-subtitle">MC Sanitation · ${window._currentCity||'Chandigarh'}</div></div>
+    <div class="module-header">
+      <div class="module-title">🗑️ Waste Management</div>
+      <button class="request-btn" onclick="showWasteRequestDialog()">📝 Report Issue</button>
+      <div class="module-subtitle">MC Sanitation · ${window._currentCity||'Chandigarh'}</div>
+    </div>
     <div class="grid-4" style="margin-bottom:16px">
       <div class="stat-card" style="--stat-color:var(--red)"><div class="stat-label">Critical Bins</div><div class="stat-value" style="color:var(--red)">1</div><div class="stat-sub">Sector 43 — 98%</div></div>
       <div class="stat-card" style="--stat-color:var(--yellow)"><div class="stat-label">Moderate</div><div class="stat-value" style="color:var(--yellow)">4</div><div class="stat-sub">>60% capacity</div></div>

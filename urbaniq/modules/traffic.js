@@ -13,7 +13,11 @@ function render_traffic(el){
   el.innerHTML=`
   <div class="fade-in">
     <div class="breadcrumb">Smart City / <span>Traffic</span></div>
-    <div class="module-header"><div class="module-title">🚦 Traffic Status</div><div class="module-subtitle">Real-time · ${window._currentCity||'Chandigarh'}</div></div>
+    <div class="module-header">
+      <div class="module-title">🚦 Traffic Status</div>
+      <button class="request-btn" onclick="showTrafficRequestDialog()">📝 Report Issue</button>
+      <div class="module-subtitle">Real-time · ${window._currentCity||'Chandigarh'}</div>
+    </div>
     <div class="grid-4" style="margin-bottom:16px">
       <div class="stat-card" style="--stat-color:var(--red)"><div class="stat-label">Avg City Speed</div><div class="stat-value" style="color:var(--red)">28</div><div class="stat-sub">km/h · Below normal</div></div>
       <div class="stat-card" style="--stat-color:var(--red)"><div class="stat-label">Jam Points</div><div class="stat-value" style="color:var(--red)">3</div><div class="stat-sub">Tribune, PGI, Sec17</div></div>

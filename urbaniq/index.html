@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/admin.css">
 </head>
 <body>
 
@@ -39,6 +40,12 @@
     <div class="nav-group-label">Overview</div>
     <div class="nav-item active" data-module="dashboard" onclick="loadModule('dashboard',this)">
       <span class="ni">🏙️</span> Dashboard
+    </div>
+    <div class="nav-item" data-module="userDashboard" onclick="loadModule('userDashboard',this)">
+      <span class="ni">👤</span> My Dashboard
+    </div>
+    <div class="nav-item" data-module="admin" onclick="loadModule('admin',this)" id="adminNavItem" style="display:none;">
+      <span class="ni">🔐</span> Admin Panel
     </div>
     <div class="nav-item" data-module="map" onclick="loadModule('map',this)">
       <span class="ni">🗺️</span> City Map
@@ -130,6 +137,8 @@
 </div>
 
 <script src="js/main.js"></script>
+<script src="js/requestSystem.js"></script>
+<script src="js/moduleDataIntegration.js"></script>
 <script src="js/chat.js"></script>
 </body>
 </html>

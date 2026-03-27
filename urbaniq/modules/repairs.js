@@ -13,12 +13,15 @@ function render_repairs(el){
   el.innerHTML=`
   <div class="fade-in">
     <div class="breadcrumb">Smart City / <span>Road Repairs</span></div>
-    <div class="module-header"><div class="module-title">🚧 Road Repairs & Maintenance</div><div class="module-subtitle">${window._currentCity||'Chandigarh'}</div></div>
+    <div class="module-header">
+      <div class="module-title">🚧 Road Repairs & Maintenance</div>
+      <button class="request-btn" onclick="showRepairsRequestDialog()">📝 Report Issue</button>
+      <div class="module-subtitle">${window._currentCity||'Chandigarh'}</div>
+    </div>
     <div class="grid-4" style="margin-bottom:16px">
       <div class="stat-card" style="--stat-color:var(--orange)"><div class="stat-label">Active Works</div><div class="stat-value" style="color:var(--orange)">2</div><div class="stat-sub">Currently ongoing</div></div>
       <div class="stat-card" style="--stat-color:var(--yellow)"><div class="stat-label">Planned</div><div class="stat-value" style="color:var(--yellow)">3</div><div class="stat-sub">Starting this month</div></div>
       <div class="stat-card" style="--stat-color:var(--green)"><div class="stat-label">Completed</div><div class="stat-value" style="color:var(--green)">2</div><div class="stat-sub">This month</div></div>
-      <div class="stat-card" style="--stat-color:var(--red)"><div class="stat-label">High Impact</div><div class="stat-value" style="color:var(--red)">3</div><div class="stat-sub">Traffic diversions active</div></div>
     </div>
     <div class="card">
       <div class="card-header"><span>📋</span><span class="card-title">All Road Works</span></div>

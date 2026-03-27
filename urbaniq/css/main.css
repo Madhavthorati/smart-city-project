@@ -115,6 +115,40 @@ body {
   gap: 12px;
 }
 
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 12px;
+}
+
+.user-name {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text2);
+  background: var(--surface2);
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+}
+
+.logout-btn {
+  background: var(--red-bg);
+  color: var(--red);
+  border: 1px solid var(--red);
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.logout-btn:hover {
+  background: var(--red);
+  color: white;
+}
+
 .live-badge {
   display: flex;
   align-items: center;
@@ -289,7 +323,7 @@ body {
 .card-title {
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
-  font-size: ;
+  font-size: 1rem;
   color: var(--text);
 }
 
