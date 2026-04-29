@@ -1,0 +1,17 @@
+{
+  "name": "urbaniq-frontend",
+  "version": "1.0.0",
+  "description": "Smart City Frontend Application",
+  "main": "index.html",
+  "scripts": {
+    "dev": "live-server --port=3000 --host=localhost",
+    "build": "echo 'Build process would be implemented here'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["smart-city", "frontend", "dashboard"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
